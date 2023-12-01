@@ -5,6 +5,7 @@ import java.util.Map;
 
 public class CoreJavaBasics {
     public static void main(String[] args) {
+
         Map<StringBuilder, String> map = new HashMap<>();
         StringBuilder sb = new StringBuilder("Vijay");
         map.put(sb, "Sharma");
@@ -18,5 +19,7 @@ public class CoreJavaBasics {
         str = str+"Kumar";
         System.out.println(map1);
         System.out.println(map1.get(str));
+
+
     }
 }
