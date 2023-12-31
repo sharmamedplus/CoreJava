@@ -56,29 +56,7 @@ public class Java8Coding {
 		System.out.print(zeros);
 	}
 
-	public static void getFundCodeMapping(){
-
-			List<UeFundCodeMapping> ueFundCodeList = new ArrayList<>();
-
-			ueFundCodeList.add(new UeFundCodeMapping(1l, "FC1"));
-			ueFundCodeList.add(new UeFundCodeMapping(2l, "FC2"));
-			ueFundCodeList.add(new UeFundCodeMapping(3l, "FC3"));
-			ueFundCodeList.add(new UeFundCodeMapping(1L, "FC11"));
-			System.out.println(ueFundCodeList);
-
-			// If there is duplicate key in that case it will through error
-			//ueFundCodeList.stream().collect(Collectors.toMap(UeFundCodeMapping::getId, UeFundCodeMapping::getFundCode));
-
-			// So try this it will give same behaviour as Map is having to replace value.
-			System.out.println(ueFundCodeList.stream()
-			.collect(Collectors.toMap(UeFundCodeMapping::getId, UeFundCodeMapping::getFundCode, (o,n)->n)));
-
-			// If we don't wants to replace value keep like
-			System.out.println(ueFundCodeList.stream()
-					.collect(Collectors.toMap(UeFundCodeMapping::getId, UeFundCodeMapping::getFundCode, (o,n)->o)));
-	}
-
-	public static void findMaxSalaryEmployeeFromEachDepartment(){
+		public static void findMaxSalaryEmployeeFromEachDepartment(){
 		List<Employee> emps = EmployeeData.getEmployees();
 		Map<String, Employee> result = emps.stream().collect(
 				Collectors.groupingBy(Employee::getDepartment,

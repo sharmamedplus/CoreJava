@@ -18,7 +18,7 @@ public class SortMapByValue {
         System.out.println(ageMap);
 
         Map<String, Integer> result = ageMap.entrySet().stream()
-                .sorted(Map.Entry.comparingByValue())
+                //.sorted(Map.Entry.comparingByValue())
                 //.sorted((entry1, entry2) -> entry1.getValue() - entry2.getValue()) ->  Ascending natural
                 .sorted((entry1, entry2) -> entry2.getValue() - entry1.getValue()) // -> Descending reversed
                 //.sorted((entry1, entry2) -> entry1.getKey().compareTo(entry2.getKey())) // By Key

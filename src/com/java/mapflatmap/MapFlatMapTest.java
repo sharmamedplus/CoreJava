@@ -13,7 +13,9 @@ public class MapFlatMapTest {
         Map<String, List<Employee>> map = new HashMap<>();
 
         map.values().stream()
-                .flatMap(Collection::stream)
+                //.flatMap(Collection::stream)
+                //.flatMap(List::stream)
+                .flatMap(list -> list.stream())
                 .map(Employee::getName)
                 .collect(Collectors.toSet());
     }

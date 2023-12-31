@@ -21,7 +21,7 @@ class Singleton implements Serializable, Cloneable {
     }
 
     @Override
-    public Singleton_ clone() throws CloneNotSupportedException {
+    public Singleton clone() throws CloneNotSupportedException {
         throw new CloneNotSupportedException("Can not clone");
     }
 

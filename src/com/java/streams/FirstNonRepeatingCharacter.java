@@ -17,6 +17,9 @@ public class FirstNonRepeatingCharacter {
                 .map(entry -> entry.getKey())              // get the keys of EntrySet
                 .findFirst().get();
 
+        Stream<Character> s2 = name.chars().mapToObj(c -> (char) c);
+        response = s2.collect(Collectors.groupingBy(Function.identity(), LinkedHashMap::new, Collectors.counting()))
+                        .entrySet().stream().filter(entry -> entry.getValue() == 1).findFirst().get().getKey();
         System.out.println(response);
     }
 }

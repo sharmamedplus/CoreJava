@@ -9,7 +9,7 @@ public class CharacterCount {
     public static void main(String[] args) {
         String name = "Vijay Kumar Sharma";
 
-        Map<Character, Long> characterCount = name.chars().mapToObj(ch -> Character.valueOf((char) ch))
+        Map<Character, Long> characterCount = name.chars().mapToObj(ch -> (char) ch)
                 .collect(Collectors.groupingBy(Function.identity(), Collectors.counting()));
 
         System.out.println("Character Count : "+ characterCount);
@@ -41,6 +41,7 @@ public class CharacterCount {
                 .findFirst().get().getKey();
 
         System.out.println(firstNonRepeated);
+
         int[] numbers  = {2,5,3,7,9,11,15};
         int secondHighest = Arrays.stream(numbers).boxed().sorted(Comparator.reverseOrder()).skip(1).findFirst().get();
         System.out.println(secondHighest);

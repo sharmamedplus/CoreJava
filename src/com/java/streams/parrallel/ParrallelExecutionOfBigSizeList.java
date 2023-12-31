@@ -20,5 +20,12 @@ public class ParrallelExecutionOfBigSizeList {
                     // Do your logic here with max 500 grids each time
                 });
 
+
+
+    }
+
+    private void getAllCaseDetails(){
+        List<Long> caseIds = new ArrayList<>();
+
     }
 }
