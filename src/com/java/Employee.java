@@ -27,7 +27,13 @@ public class Employee
 		this.yearOfJoining = yearOfJoining;
 		this.salary = salary;
 	}
-	
+
+	public Employee(String name, int age, double salary)
+	{
+		this.name = name;
+		this.age = age;
+		this.salary = salary;
+	}
 	public int getId() 
 	{
 		return id;
