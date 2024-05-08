@@ -16,7 +16,7 @@ immutability in order to have a good understanding while implementing the same. 
 
 */
 
-final class Student{
+final class Student {
     private final String name;
     private final Long rollNo;
     private final Map<String,String> data;
