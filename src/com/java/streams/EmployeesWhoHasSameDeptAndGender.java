@@ -4,6 +4,7 @@ import com.java.Employee;
 import com.java.EmployeeData;
 
 import java.util.List;
+import java.util.Locale;
 import java.util.Map;
 import java.util.function.Function;
 import java.util.stream.Collectors;
@@ -18,6 +19,9 @@ public class EmployeesWhoHasSameDeptAndGender {
                         emp -> (emp.getDepartment() + emp.getGender()).toLowerCase(),
                         Collectors.mapping(Function.identity(), Collectors.toList())));
 
-        System.out.println(response);
+        Map<String, List<Employee>> response2 = employees.stream().collect(Collectors.groupingBy(
+                emp -> (emp.getDepartment() + emp.getGender()).toLowerCase(), Collectors.toList()));
+
+        System.out.println(response2);
     }
 }

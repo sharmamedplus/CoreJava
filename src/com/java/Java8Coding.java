@@ -2,6 +2,7 @@ package com.java;
 import java.util.*;
 import java.util.function.Function;
 import java.util.stream.Collectors;
+import java.util.stream.DoubleStream;
 import java.util.stream.IntStream;
 import java.util.stream.Stream;
 
@@ -10,23 +11,26 @@ public class Java8Coding {
 	public static void main(String[] args) {
 		List<Employee> elist = EmployeeData.getEmployees();
 
-		//p(elist.stream().collect(Collectors.groupingBy(e -> e.getGender(), Collectors.counting())));
-
-		//p(elist.stream().map(e->e.getDepartment()).collect(Collectors.toSet()));
-
 		//p(elist.stream().collect(Collectors.groupingBy(e -> e.getGender(), Collectors.averagingInt(e -> e.getAge()))));
 
 		//Map<String, Set<Employee>> val = elist.stream().collect(Collectors.groupingBy(Employee::getDepartment, Collectors.mapping(Function.identity(), Collectors.toSet())));
 		//System.out.println(val);
 
-		//getFundCodeMapping();
-
 		//extractCommaSeperateNamesOfEmployees(elist);
 
 		//extractZerosAndOnesFromIntegerArray();
 
-		findMaxSalaryEmployeeFromEachDepartment();
+		//findMaxSalaryEmployeeFromEachDepartment();
 		//sortByLambdaExpression();
+		// If employee sal is more then 10000 then pass else fail
+		Map<String, List<Employee>> result = elist.stream().collect(
+				Collectors.groupingBy(e -> e.getSalary() > 10000 ? "Pass" : "Failed"));
+
+		List<String> values = Arrays.asList("2.3");
+		DoubleStream response = values.stream().mapToDouble(value -> Double.parseDouble(value));
+		response.forEach(num -> {
+			System.out.println(num);
+		});
 	}
 
 	private static void extractCommaSeperateNamesOfEmployees(List<Employee> elist) {
@@ -42,7 +46,7 @@ public class Java8Coding {
 
 		// Sort in order by age
 		Map<Integer, List<String>> map3 = elist.stream().filter(e -> e.getGender().equalsIgnoreCase("male"))
-				.collect(Collectors.groupingBy(Employee::getId, TreeMap::new, Collectors.mapping(Employee::getName, Collectors.toList())));
+				.collect(Collectors.groupingBy(Employee::getAge, TreeMap::new, Collectors.mapping(Employee::getName, Collectors.toList())));
 
 		System.out.println(map3);
 	}
@@ -56,7 +60,7 @@ public class Java8Coding {
 		System.out.print(zeros);
 	}
 
-		public static void findMaxSalaryEmployeeFromEachDepartment(){
+	public static void findMaxSalaryEmployeeFromEachDepartment(){
 		List<Employee> emps = EmployeeData.getEmployees();
 		Map<String, Employee> result = emps.stream().collect(
 				Collectors.groupingBy(Employee::getDepartment,
@@ -64,13 +68,16 @@ public class Java8Coding {
 				)
 		);
 
+		emps.stream().collect(Collectors.groupingBy(Employee::getDepartment,
+				Collectors.collectingAndThen(Collectors.maxBy(Comparator.comparingDouble(Employee::getSalary)), Optional::get)));
+
 
 		System.out.println(result);
 
 		emps.stream().collect(Collectors.maxBy(Comparator.comparingDouble(e -> e.getSalary()))).get();
 		// Max Salary
-		System.out.println("Max Salary : "+emps.stream().max(Comparator.comparingDouble(Employee::getSalary)));
-		System.out.println("Avg salary : "+emps.stream().collect(Collectors.averagingDouble(Employee::getSalary)));
+		System.out.println("Max Salary : "+ emps.stream().max(Comparator.comparingDouble(Employee::getSalary)));
+		System.out.println("Avg salary : "+ emps.stream().collect(Collectors.averagingDouble(Employee::getSalary)));
 		System.out.println("Department Wise Average Salary : "+ emps.stream().collect(Collectors.groupingBy(Employee::getGender, Collectors.averagingDouble(Employee::getSalary))));
 		System.out.println("All Emp Ages : "+ emps.stream().map(Employee::getAge).collect(Collectors.toList()));
 		System.out.println("Youngest Employee : "+ emps.stream().sorted(Comparator.comparing(Employee::getYearOfJoining).reversed()).findFirst().get());
@@ -80,7 +87,8 @@ public class Java8Coding {
 
 	public static void sortByLambdaExpression(){
 		List<Employee> employees = EmployeeData.getEmployees();
-
+		String s = "Hi";
+		s = s + "Vijay";
 		employees.sort((e1,e2)-> e1.getAge() > e2.getAge() ? 1 : -1);
 		//OR
 		Collections.sort(employees, new Comparator<Employee>() {
@@ -108,4 +116,6 @@ public class Java8Coding {
 
 
 	}
+
+
 }

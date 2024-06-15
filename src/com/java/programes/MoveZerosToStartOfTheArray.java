@@ -3,8 +3,15 @@ package com.java.programes;
 public class MoveZerosToStartOfTheArray {
     public static void main(String[] args) {
 
-       // put 0 at end
-        
+        moveZerosAtStart();
+        System.out.println();
+        moveZerosAtEnd();
+
+    }
+
+    private static void moveZerosAtStart() {
+        System.out.println("put 0 at start");
+
         int[] arr = {1,0,2,0};
 
         int current = arr.length-1;
@@ -25,27 +32,31 @@ public class MoveZerosToStartOfTheArray {
         for (int i = 0; i < arr.length; i++) {
             System.out.print(arr[i] + " ");
         }
+    }
 
-        // put 0 at start
+    private static void moveZerosAtEnd() {
+        System.out.println("put 0 at end");
 
-        int arr2[] = {0,1,2,0};
+        int arr[] = {0,1,2,0};
 
         int start = 0;
 
-        for(int i = 0; i<= arr2.length -1; i++){
-            if(arr2[i] != 0){
-                arr2[start] = arr2[i];
+        for(int i = 0; i<= arr.length -1; i++){
+            if(arr[i] != 0){
+                arr[start] = arr[i];
                 start ++;
             }
         }
 
-        while (start < arr2.length){
-            arr2[start] = 0;
+        while (start < arr.length){
+            arr[start] = 0;
             start ++;
         }
 
-        for (int i = 0; i < arr2.length; i++) {
-            System.out.print(arr2[i] + " ");
+        for (int i = 0; i < arr.length; i++) {
+            System.out.print(arr[i] + " ");
         }
     }
+
+
 }

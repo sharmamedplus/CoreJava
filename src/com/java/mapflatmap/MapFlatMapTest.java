@@ -18,5 +18,18 @@ public class MapFlatMapTest {
                 .flatMap(list -> list.stream())
                 .map(Employee::getName)
                 .collect(Collectors.toSet());
+
+        List<String> response = List.of(List.of("Vijay", "Supriya"), List.of("AArsh", "Aradhya"))
+                .stream().flatMap(list -> list.stream()).collect(Collectors.toList());
+
+        System.out.println(response);
+
+        List<List<String>> shapes = List.of(
+                List.of("triangle", "rectangle", "square"), // sharp forms
+                List.of("circle", "ellipse", "cylinder") // rounded forms
+        );
+
+        response = shapes.stream().flatMap(list -> list.stream()).collect(Collectors.toList());
+        System.out.println(response);
     }
 }

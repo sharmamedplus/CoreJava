@@ -1,4 +1,4 @@
-package com.java.executorservice;
+package com.java.threads.executorservice;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -12,7 +12,7 @@ public class CallableTest implements Callable<String> {
     }
 
     public static void main(String[] args) {
-        ExecutorService executorService = Executors.newFixedThreadPool(2);
+        ExecutorService executorService = Executors.newFixedThreadPool(Runtime.getRuntime().availableProcessors());
         List<Future> results = new ArrayList<>();
         for(int i=0; i<20;i++){
             Future<String> future = executorService.submit(new CallableTest());
