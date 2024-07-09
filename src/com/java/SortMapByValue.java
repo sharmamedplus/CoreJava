@@ -1,15 +1,13 @@
 package com.java;
 
-import java.util.Comparator;
-import java.util.HashMap;
-import java.util.LinkedHashMap;
-import java.util.Map;
+import java.util.*;
 import java.util.stream.Collectors;
 
 import static java.util.Map.Entry.comparingByValue;
 
 public class SortMapByValue {
     public static void main(String[] args) {
+
         Map<String, Integer> ageMap = new HashMap();
         ageMap.put("Vijay", 32);
         ageMap.put("Supriya", 33);
