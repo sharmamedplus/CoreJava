@@ -1,5 +1,6 @@
 package com.java.Test;
 
+
 public interface Test {
     int a = 1;
 }
