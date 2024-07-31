@@ -2,7 +2,7 @@ package com.java.Test;
 
 
 public interface Test {
-    int a = 1;
+    int a = 2;
 }
 
 abstract  class A {
