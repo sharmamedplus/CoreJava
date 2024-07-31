@@ -15,6 +15,6 @@ public class StringTest {
         StringBuilder name = new StringBuilder("Vijay  Sharma ");
         String response = name.substring(0, name.lastIndexOf(" Sharma "));
         System.out.println(String.format("Hi %d ", 500));
-
+        System.out.println(name.substring(0,1));
     }
 }
