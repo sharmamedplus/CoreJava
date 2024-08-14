@@ -5,13 +5,20 @@ import java.util.stream.IntStream;
 
 public class StringTest {
     public static void main(String[] args) {
-        StringBuilder sb = new StringBuilder();
-        //Arrays.asList("Vijay","Supriya","Vijay2").stream().filter(e -> e.startsWith("V")).map(sb::append);
-        String s = "1";
-        IntStream.range(1,5).forEach(e->{
-                sb.append(String.format("For Case :%s", s));
-                sb.append("\n");
-        });
-        System.out.println(sb.toString());
+        int arr[] = {0,1,2,0,2,0};
+        int counter = arr.length-1;
+
+        for(int i=arr.length-1; i>0; i--){
+            if(arr[i] != 0){
+                arr[counter] = arr[i];
+                counter --;
+            }
+        }
+        while(counter >= 0){
+            arr[counter] = 0;
+            counter--;
+        }
+
+        Arrays.stream(arr).forEach(System.out::print);
     }
 }
