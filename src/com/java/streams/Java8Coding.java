@@ -1,10 +1,11 @@
-package com.java;
+package com.java.streams;
+import com.java.Employee;
+import com.java.EmployeeData;
+
 import java.util.*;
-import java.util.function.Function;
 import java.util.stream.Collectors;
 import java.util.stream.DoubleStream;
 import java.util.stream.IntStream;
-import java.util.stream.Stream;
 
 public class Java8Coding {
 
