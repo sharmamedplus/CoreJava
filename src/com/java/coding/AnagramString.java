@@ -24,6 +24,5 @@ public class AnagramString {
             };
             System.out.println(is);
         }
-
     }
 }
