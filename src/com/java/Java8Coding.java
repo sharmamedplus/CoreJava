@@ -9,6 +9,7 @@ import java.util.stream.Stream;
 public class Java8Coding {
 
 	public static void main(String[] args) {
+		// Hello
 		//
 		List<Employee> elist = EmployeeData.getEmployees();
 
