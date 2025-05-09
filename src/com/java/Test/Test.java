@@ -8,3 +8,9 @@ public interface Test {
 abstract  class A {
     public A(){}
 }
+
+class ABC {
+    public static void main(String[] args) {
+        System.out.println(Math.ceil(75/30));
+    }
+}
