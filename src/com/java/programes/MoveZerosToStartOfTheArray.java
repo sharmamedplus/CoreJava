@@ -39,18 +39,18 @@ public class MoveZerosToStartOfTheArray {
 
         int arr[] = {0,1,2,0};
 
-        int start = 0;
+        int counter = 0;
 
         for(int i = 0; i<= arr.length -1; i++){
             if(arr[i] != 0){
-                arr[start] = arr[i];
-                start ++;
+                arr[counter] = arr[i];
+                counter ++;
             }
         }
 
-        while (start < arr.length){
-            arr[start] = 0;
-            start ++;
+        while (counter < arr.length){
+            arr[counter] = 0;
+            counter ++;
         }
 
         for (int i = 0; i < arr.length; i++) {

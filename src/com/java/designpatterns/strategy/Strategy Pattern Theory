@@ -1,0 +1,9 @@
+Strategy design pattern is one of the behavioral design pattern.
+Strategy pattern is used when we have multiple algorithm for a specific task and client
+decides the actual implementation to be used at runtime.
+
+The Strategy Design Pattern is a behavioral design pattern.
+It allows you to dynamically change the behavior of an object by encapsulating it into different strategies.
+This pattern enables an object to choose from multiple algorithms and behaviors at runtime,
+rather than statically choosing a single one.
+
