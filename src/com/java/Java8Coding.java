@@ -9,6 +9,8 @@ import java.util.stream.Stream;
 public class Java8Coding {
 
 	public static void main(String[] args) {
+		// Hello
+		//
 		List<Employee> elist = EmployeeData.getEmployees();
 
 		//p(elist.stream().collect(Collectors.groupingBy(e -> e.getGender(), Collectors.averagingInt(e -> e.getAge()))));
